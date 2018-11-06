@@ -3,22 +3,27 @@ package com.example.android.navigation
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import androidx.navigation.findNavController
+import com.example.android.navigation.dummy.DummyContent
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ListFragment.OnListFragmentInteractionListener {
+    override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {
+        Log.i("Navigation", "Selected $item")
+    }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-//                message.setText(R.string.title_home)
+                findNavController(R.id.nav_host).navigate(R.id.main_dest)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-//                message.setText(R.string.title_dashboard)
+                findNavController(R.id.nav_host).navigate(R.id.list_dest)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-//                message.setText(R.string.title_notifications)
                 return@OnNavigationItemSelectedListener true
             }
         }
