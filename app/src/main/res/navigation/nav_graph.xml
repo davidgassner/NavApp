@@ -7,10 +7,13 @@
     <fragment android:id="@+id/main_dest" android:name="com.example.android.navigation.MainFragment"
               android:label="fragment_main" tools:layout="@layout/fragment_main"/>
     <fragment android:id="@+id/list_dest" android:name="com.example.android.navigation.ListFragment"
-              android:label="fragment_item_list" tools:layout="@layout/fragment_item_list"/>
+              android:label="fragment_item_list" tools:layout="@layout/fragment_item_list">
+        <action android:id="@+id/action_to_params" app:destination="@id/params_dest"/>
+    </fragment>
     <fragment android:id="@+id/params_dest" android:name="com.example.android.navigation.ParamsFragment"
               android:label="fragment_params" tools:layout="@layout/fragment_params">
         <argument android:name="param1" app:argType="string" android:defaultValue="Alexander"/>
         <argument android:name="param2" app:argType="string" android:defaultValue="Hamilton"/>
     </fragment>
+    <action android:id="@+id/action_global_params" app:destination="@id/params_dest"/>
 </navigation>

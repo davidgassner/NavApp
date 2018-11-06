@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity(), ListFragment.OnListFragmentInteraction
         val args = Bundle()
         args.putString("param1", "Selected")
         args.putString("param2", item.toString())
-        findNavController(R.id.nav_host).navigate(R.id.params_dest, args)
+        findNavController(R.id.nav_host).navigate(R.id.action_to_params, args)
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), ListFragment.OnListFragmentInteraction
                 val args = Bundle()
                 args.putString("param1", "Lydia")
                 args.putString("param2", "Romero")
-                findNavController(R.id.nav_host).navigate(R.id.params_dest, args)
+                findNavController(R.id.nav_host).navigate(R.id.action_global_params, args)
                 return@OnNavigationItemSelectedListener true
             }
         }
