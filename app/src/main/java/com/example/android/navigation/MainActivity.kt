@@ -10,10 +10,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ListFragment.OnListFragmentInteractionListener {
     override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {
-        val args = Bundle()
-        args.putString("param1", "Selected")
-        args.putString("param2", item.toString())
-        findNavController(R.id.nav_host).navigate(R.id.action_to_params, args)
+//        val args = Bundle()
+//        args.putString("param1", "Selected")
+//        args.putString("param2", item.toString())
+        val action = ListFragmentDirections.ActionToParams()
+        action.setParam1("Selected (with safeargs)")
+        action.setParam2(item.toString())
+        findNavController(R.id.nav_host).navigate(action)
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
