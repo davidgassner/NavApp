@@ -14,6 +14,7 @@
               android:label="fragment_params" tools:layout="@layout/fragment_params">
         <argument android:name="param1" app:argType="string" android:defaultValue="Alexander"/>
         <argument android:name="param2" app:argType="string" android:defaultValue="Hamilton"/>
+        <deepLink app:uri="www.navcomponent.com/{param1}/{param2}"/>
     </fragment>
     <action android:id="@+id/action_global_params" app:destination="@id/params_dest"/>
 </navigation>
